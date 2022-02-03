@@ -5,13 +5,14 @@ const userSchema = new Schema(
   {
     email: {
       type: String,
-      required: [true, "Email is required"],
+      required: [true, "Email is required!"],
+      unique: [true],
       validate: {
         validator: function (email) {
           return isEmail(email);
         },
         message: (props) => {
-          `${props.value} is not an email!`;
+          return `${props.value} is not an email! format`;
         },
       },
     },

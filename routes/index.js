@@ -1,7 +1,11 @@
 const routes = require("express").Router();
-const userRoute = require("");
-const productRoute = require("");
+const userRoute = require("./userRoute");
+const errorHandler = require("../middleware/errorHandler");
+const { authentication } = require("../middleware/authentication");
+// const productRoute = require("");
 
 routes.use("/", userRoute);
-routes.use("/products", productRoute);
+routes.use(authentication);
+// routes.use("/products", productRoute);
+routes.use(errorHandler);
 module.exports = routes;

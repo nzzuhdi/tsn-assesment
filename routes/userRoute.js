@@ -1,6 +1,6 @@
 const userRoute = require("express").Router();
-const UserController = require("");
-userRoute.get("/register", UserController.register);
-userRoute.get("/login", UserController.login);
-userRoute.post("/users", UserController.findAll);
+const UserController = require("../controller/userController");
+userRoute.post("/register", UserController.register);
+userRoute.post("/login", UserController.login);
+userRoute.get("/users", UserController.findAll);
 module.exports = userRoute;
