@@ -4,15 +4,28 @@ const productSchema = new Schema(
   {
     title: {
       type: String,
+      required: [true, "Title is required!"],
     },
     price: {
       type: Number,
+      min: [10000, "Must be at least 1, got {VALUE}"],
+      required: [true, "Price is required!"],
+    },
+    image: {
+      type: String,
     },
     gender: {
-      type: String,
+      type: Array,
+      // enum: { values: ["Pria", "Wanita"], message: "{VALUE} is not available" },
+      required: [true, "gender is required!"],
     },
     size: {
-      type: String,
+      type: Array,
+      // enum: {
+      //   values: ["S", "M", "L", "XL"],
+      //   message: "{VALUE} is not available",
+      // },
+      required: [true, "size is required!"],
     },
   },
   { timestamps: true }

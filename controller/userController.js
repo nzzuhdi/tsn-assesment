@@ -39,17 +39,14 @@ class UserController {
       if (!password) {
         throw { name: "insertPassword" };
       }
-      console.log(email, password);
       const result = await User.findOne({ email }).exec();
       if (result) {
-        console.log(result._id);
         const compared = compare(password, result.password);
         if (compared) {
           const access_token = signToken({
             id: result._id,
-            name: result.name,
+            email: result.email,
           });
-          console.log(access_token);
           res.status(200).json({
             message: "Success Login",
             data: access_token,
