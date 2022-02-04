@@ -8,7 +8,7 @@ const productSchema = new Schema(
     },
     price: {
       type: Number,
-      min: [10000, "Must be at least 1, got {VALUE}"],
+      min: [10000, "Must be at least 10000, got {VALUE}"],
       required: [true, "Price is required!"],
     },
     image: {

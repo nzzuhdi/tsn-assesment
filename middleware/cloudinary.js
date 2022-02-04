@@ -6,7 +6,6 @@ const upload = async (req, res, next) => {
   if (!req.file) next();
   else {
     if (req.file.size > 255000) {
-      console.log("masuk eror size");
       throw { name: "fileSizeError" };
     }
     if (
@@ -24,7 +23,6 @@ const upload = async (req, res, next) => {
           next();
         })
         .catch((err) => {
-          console.log(err);
           next(err);
         });
     }
